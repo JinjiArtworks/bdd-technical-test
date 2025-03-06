@@ -2,25 +2,16 @@ import path from "path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-const basenameProd = "/react-shadcn-starter/"; // Ensure it ends with "/"
-
 export default defineConfig(({ command }) => {
-  const isProd = command === "build";
-
   return {
-    base: isProd ? basenameProd : "/", // Ensure "/" in dev mode
+    base: "/", // Vercel does NOT need a subdirectory base path
     build: {
-      outDir: "dist", // Vercel serves from "dist"
+      outDir: "dist", // Ensure it's "dist" (default for Vercel)
     },
     plugins: [react()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
-      },
-    },
-    define: {
-      global: {
-        basename: isProd ? basenameProd : "/",
       },
     },
   };
