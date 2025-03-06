@@ -5,15 +5,14 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Build artifacts (Vercel will handle the build)
-dist/
+# Build artifacts (Vercel needs "dist" for static files)
 .out/
 .build/
 .next/
 .vite/
 .cache/
 
-# Environment variables (Vercel uses its own env management)
+# Environment variables (Vercel manages these separately)
 .env
 .env.local
 .env.development.local
@@ -43,6 +42,5 @@ cypress/
 .turbo/
 nx.cache/
 
-# Vercel build output (Vercel doesn't need to track this locally)
-.vercel/output/
+# Vercel cache (but NOT the output)
 .vercel/cache/
