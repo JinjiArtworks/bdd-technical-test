@@ -1,25 +1,26 @@
-# Node modules
+# Node modules & dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Build artifacts
+# Build artifacts (Vercel will handle the build)
 dist/
-.build/
 .out/
+.build/
 .next/
 .vite/
+.cache/
 
-# Environment variables
+# Environment variables (Vercel uses its own env management)
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Editor settings & system files
+# Editor & system-specific files
 .idea/
 .vscode/
 .DS_Store
@@ -28,18 +29,20 @@ Thumbs.db
 # Logs & cache
 logs/
 *.log
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
-.cache/
 .pnp/
 .pnp.js
 .npm/
 
-# TypeScript build files
+# TypeScript & testing files
 *.tsbuildinfo
-
-# Testing-related files
 coverage/
 jest.config.js
 cypress/
+
+# Monorepo (if using Turborepo/Nx)
+.turbo/
+nx.cache/
+
+# Vercel build output (Vercel doesn't need to track this locally)
+.vercel/output/
+.vercel/cache/
